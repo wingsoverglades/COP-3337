@@ -1,0 +1,118 @@
+class Triangle
+    Point1: f64[2]
+    Point2: f64[2]
+    Point3: f64[2]
+
+
+    /* Constructor for the Triangle object class */
+    fn new_triangle(x1:f64, y1:f64, x2:f64, y2:f64, x3:f64, y3:f64) -> Triangle
+        self.Point1[0] = x1
+        self.Point1[1] = y1
+        self.Point1[0] = x2
+        self.Point1[1] = y2
+        self.Point1[0] = x3
+        self.Point1[1] = y3
+
+
+    /* moves the point by and offset */
+    fn move(p, x_offset, y_offset)
+        if(Point1 == p)
+            Point1[0] += xOffset
+            Point1[1] += yOffset
+        else if(Point2 == p)
+            Point2[0] += xOffset
+            Point2[1] += yOffset
+        else if(Point3 == p)
+            Point3[0] += xOffset
+            Point3[1] += yOffset
+
+
+    /*
+     * Finds the length of a side
+     */
+    fn side_length(p1:f64[], p2:f64[]) -> f64
+        x = abs(p1[0] - p2[0])
+        y = abs(p1[1] - p2[1])
+        return sqrt(x**2 + y**2)
+
+
+    /*
+     * Finds the angle at a point using the steps detailed in:
+     * https://www.mathsisfun.com/algebra/trig-solving-sss-triangles.html
+     */
+    fn angle(p:f64) -> f64
+        if(p == Point1)
+            return arccos((side_length(Point1,Point2)**2
+                    + side_length(Point1,Point3)**2
+                    - side_length(Point2,Point3)**2)
+                    /   (2 * side_length(Point1,Point2) *
+                        side_length(Point1,Point3)) * 180 / PI
+        if(p == Point2)
+            return arccos((side_length(Point2,Point1)**2
+                    + side_length(Point2,Point3)**2
+                    - side_length(Point1,Point3)**2)
+                    /   (2 * side_length(Point2,Point1) *
+                        side_length(Point2,Point3)) * 180 / PI
+        if(p == Point3)
+            return arccos((side_length(Point3,Point1)**2
+                    + side_length(Point3,Point2)**2
+                    - side_length(Point2,Point1)**2)
+                    /   (2 * side_length(Point1,Point2) *
+                        side_length(Point1,Point3)) * 180/ PI
+
+
+    /* Finds the perimeter of the Triangle */
+    fn perimeter() -> f64
+        return side_length(Point1, Point2) + side_length(Point1, Point3)
+                                           + side_length(Point2, Point3)
+
+
+    /*
+     * Finds the area of the Triangle using the steps provided in:
+     * http://sciencing.com/area-scalene-triangle-10015426.html
+     */
+    fn area() -> f64
+        return (sin(angle(Point1)) * side_length(Point1,Point2)
+                                   * side_length(Point1,Point3))
+                                   / 2.0
+
+
+    /* Finds whether the Triangle is equilateral */
+    fn is_equilateral() -> bool
+        return (side_length(Point1, Point2) == side_length(Point1, Point3) &&
+               (side_length(Point1, Point3) == side_length(Point2, Point3)
+
+
+    /* Finds whether the Triangle is a right triangle */
+    fn is_right() -> bool
+        return (angle(Point1) == 90.0 || angle(Point2) == 90.0 ||
+                angle(Point3) == 90
+
+
+    /* Finds the incenter of the triangle */
+    fn incenter() -> f64[]
+        coordinates[]
+        coordiantes[0] = (side_length(Point1,Point2) * Point3[0]
+            + side_length(Point1,Point3) * Point2[0]
+            + side_length(Point2,POINT3) * Point1[0]) / perimeter()
+        coordinates[1] = (side_length(Point1,Point2) * Point3[1]
+            + side_length(Point1,Point3) * Point2[1]
+            + side_length(Point2,Point3) * Point1[1]) / perimeter()
+        return coordinates
+
+
+    /* Finds the centroid of the triangle */
+    fn centroid() -> f64[]
+        coordinates[]
+            coordinates[0] = (Point1[0] + Point2[0] + Point3[0]) / 3.0; // Find the
+            coordinates[1] = (Point1[1] + Point2[1] + Point3[1]) / 3.0; // average
+            return coordinates
+
+
+    fn center()
+        x_offset = -centroid()[0];
+        y_offset = -centroid()[1];
+
+        move(point1, x_offset, y_offset);
+        move(point2, x_offset, y_offset);
+        move(point3, x_offset, y_offset);
