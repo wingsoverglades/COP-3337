@@ -46,13 +46,36 @@
 
 public class Die
 {
-    private int face = 1;
+    private int face;
 
+    /*
+     * Constructor for the Die class. Takes no arguments and returns no
+     * values other than the Die it creates.
+     */
     public Die()
-    {}
-
-    public rollDie()
     {
+        rollDie();
+    }
 
+
+    /*
+     * Method for simulating rolling a single Die. Assigns a random value
+     * between 1 and 6, the minimum and maximum outcomes of a die roll
+     * respectively.
+     */
+    public void rollDie()
+    {
+        final int DIE_MINIMUM = 1;
+        final int DIE_MAXIMUM = 6;
+        face = (int)(Math.random() * DIE_MAXIMUM + DIE_MINIMUM);
+    }
+
+
+    /*
+     * Getter method that returns the value of face.
+     */
+    public int getDieValue()
+    {
+        return face;
     }
 }
