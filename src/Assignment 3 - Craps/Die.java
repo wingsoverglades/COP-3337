@@ -48,14 +48,14 @@ public class Die
      * between 1 and sides, the minimum and maximum outcomes of a die roll
      * respectively.
      *
-     * @param sides     The number of sides in the die.
+     * @param SIDES     The number of sides in the die.
      *
      * @return          A random number between 1 and the number of sides
      *                  inclusive.
      */
-    public static int rollDie(int sides)
+    public static int rollDie(final int SIDES)
     {
         final int DIE_MINIMUM = 1;
-        return (int)(Math.random() * sides + DIE_MINIMUM);
+        return (int)(Math.random() * SIDES + DIE_MINIMUM);
     }
 }
