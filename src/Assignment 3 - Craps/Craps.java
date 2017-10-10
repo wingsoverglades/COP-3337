@@ -49,5 +49,22 @@
 
 public class Craps
 {
+        private final Die DIE1;
+        private final Die DIE2;
+        private int gamesCount;
+        private int totalDieRolls;
 
+
+
+        /*
+         * Constructor for the Craps class.
+         */
+        public Craps()
+        {
+            DIE1 = new Die();
+            DIE2 = new Die();
+
+            gamesCount = 0;
+            totalDieRolls = 0;
+        }
 }
