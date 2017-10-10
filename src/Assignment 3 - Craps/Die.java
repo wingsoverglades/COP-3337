@@ -43,10 +43,15 @@
 
 public class Die
 {
-    /*
+    /**
      * Method for simulating rolling a single Die. Assigns a random value
      * between 1 and sides, the minimum and maximum outcomes of a die roll
      * respectively.
+     *
+     * @param sides     The number of sides in the die.
+     *
+     * @return          A random number between 1 and the number of sides
+     *                  inclusive.
      */
     public static int rollDie(int sides)
     {
