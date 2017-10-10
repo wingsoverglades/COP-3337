@@ -49,6 +49,8 @@ public class Analyzer
 {
     public static void main(String[] args)
     {
-
+        System.out.println("How much crap do you want to shoot?");
+        System.out.print("Please enter and integer between 1 and 1,000,000, " +
+                "inclusive: ");
     }
 }

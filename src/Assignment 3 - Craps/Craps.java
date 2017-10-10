@@ -20,14 +20,12 @@
 | 	javac Analyzer.java Craps.java Die.java
 |	java Analyzer
 |
-|   Purpose:  [A description of why this class exists.  For what
+|   Purpose:        [A description of why this class exists.  For what
 |                   reason was it written?  Which jobs does it perform?]
 |
-|   Inherits From:  [If this class is a subclass of another, name it.
-|                   If not, just say "None."]
+|   Inherits From:  The object class.
 |
-|   Interfaces:  [If any predefined interfaces are implemented by
-|                  this class, name them.  If not, ... well, you know.]
+|   Interfaces:     None
 |
 +-------------------------------------------------------------------------------
 |
@@ -49,8 +47,6 @@
 
 public class Craps
 {
-        private final Die DIE1;
-        private final Die DIE2;
         private int gamesCount;
         private int totalDieRolls;
 
@@ -61,9 +57,6 @@ public class Craps
          */
         public Craps()
         {
-            DIE1 = new Die();
-            DIE2 = new Die();
-
             gamesCount = 0;
             totalDieRolls = 0;
         }
