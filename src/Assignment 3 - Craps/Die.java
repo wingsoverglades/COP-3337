@@ -46,14 +46,16 @@
 
 public class Die
 {
-    private int face;
+    private int value;
+    private final int DIE_SIDES;
 
     /*
-     * Constructor for the Die class. Takes no arguments and returns no
-     * values other than the Die it creates.
+     * Constructor for the Die class. Takes 1 argument: the number of sides
+     * in the die, and returns no values other than the Die it creates.
      */
-    public Die()
+    public Die(int sides)
     {
+        DIE_SIDES = sides;
         rollDie();
     }
 
@@ -66,16 +68,15 @@ public class Die
     public void rollDie()
     {
         final int DIE_MINIMUM = 1;
-        final int DIE_MAXIMUM = 6;
-        face = (int)(Math.random() * DIE_MAXIMUM + DIE_MINIMUM);
+        value = (int)(Math.random() * DIE_SIDES + DIE_MINIMUM);
     }
 
 
     /*
-     * Getter method that returns the value of face.
+     * Getter method that returns the value of value.
      */
     public int getDieValue()
     {
-        return face;
+        return value;
     }
 }
