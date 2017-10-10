@@ -29,18 +29,18 @@
 |
 +-------------------------------------------------------------------------------
 |
-|   Constants:  [Name all public class constants, and provide a very
-|                   brief (but useful!) description of each.]
+|   Constants:  There are no class constants
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:   Public constructor Die, takes no arguments.
+|   Constructors:       Public constructor Die, takes no arguments.
 |
-|   Class Methods:  [List the names, arguments, and return types of all
-|                   private class methods.]
+|   Class Methods:      There are no private methods.
 |
-|   Instance Methods:  [List the names, arguments, and return types of all
-|                   public instance methods.]
+|   Instance Methods:   There are Two (2) public instance methods: method
+|                       rollDie takes no arguments and returns no values,
+|                       method getDieValue takes no arguments and returns the
+|                       value of the variable "face."
 |
 *=============================================================================*/
 
