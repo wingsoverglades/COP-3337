@@ -2,7 +2,7 @@
 |   Source code:    Analyzer.java
 |   Author:         Luis Vitier
 |   Student ID:     5723008 
-|   Assignment:     Program #[n] [Title]
+|   Assignment:     Program #3 Craps
 |  
 |   Course:     COP 3337 (Programming 2)
 |   Section:    U09 
@@ -45,12 +45,29 @@
 |                   errors. Being honest here may save you some points.]  
 *=============================================================================*/
 
+import java.util.Scanner;   //Provides the scanner utility for user input.
+
 public class Analyzer
 {
     public static void main(String[] args)
     {
+        Scanner input = new Scanner(System.in);
+
         System.out.println("How much crap do you want to shoot?");
         System.out.print("Please enter and integer between 1 and 1,000,000, " +
                 "inclusive: ");
+
+        //Get user input and validate for the 1 - 1,000,000 inclusive limit.
+        long games = input.nextLong();
+        if(games < 1)
+        {
+            games = 1;
+        }   //end if
+        if(games > 1000000)
+        {
+            games = 1000000;
+        }   //end if
+
+
     }
 }

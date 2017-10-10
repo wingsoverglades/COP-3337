@@ -45,19 +45,29 @@
 |
 *=============================================================================*/
 
+import java.util.ArrayList;
+
 public class Craps
 {
         private int gamesCount;
         private int totalDieRolls;
+        private int tally[];
+        private int openingWins;
+        private int openingLoses;
 
 
 
-        /*
-         * Constructor for the Craps class.
+        /**
+         * Constructor for the Craps class. Takes no arguments and returns no
+         * values.
          */
         public Craps()
         {
             gamesCount = 0;
             totalDieRolls = 0;
+            tally = new int[0];
+            openingWins = 0;
+            openingLoses = 0;
         }
+
 }
