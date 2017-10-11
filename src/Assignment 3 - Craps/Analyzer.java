@@ -58,16 +58,42 @@ public class Analyzer
                 "inclusive: ");
 
         //Get user input and validate for the 1 - 1,000,000 inclusive limit.
-        long games = input.nextLong();
-        if(games < 1)
+        long count = input.nextLong();
+        if (count < 1)
         {
-            games = 1;
+            count = 1;
         }   //end if
-        if(games > 1000000)
+        if (count > 1000000)
         {
-            games = 1000000;
+            count = 1000000;
         }   //end if
 
+        Craps game = new Craps();
 
+        for (long i = 0; i < count; i++)
+        {
+            game.playGame(2, 6);
+        }
+
+        //Tier 1 of output
+        System.out.println("Total number of games played: "
+                + game.getTotalGamesCount());
+        System.out.println("Total number of rolls for all games: "
+                + game.getTotalDieRolls());
+        for(int i = 0; i < game.getTally().length; i++)
+        {
+            System.out.println("Tally for game " + i + ": "
+                    + game.getTally()[i]);
+        }
+        System.out.printf("Average length of the games played: %.5f\n",
+                game.averageLength());
+
+        //Tier 2 of output
+        System.out.println("Expected probability of winning overall: ");
+        System.out.printf("Probability of winning: %.5f%%\n",
+                game.winningOutcome());
+
+        //Tier 3 of output
+        System.out.println("Total");
     }
 }

@@ -50,18 +50,20 @@ public class Craps
     private int totalGamesCount;
     private int totalDieRolls;
     private int tally[];
+    private int totalWins;
+    private int openingGames;
     private int openingWins;
     private int openingLoses;
     private int longestGame;
+
+    private int point;
+    private int currentRolls;
 
     private final int NATURAL = 7;
     private final int YO_LEVEN = 11;
     private final int SNAKE_EYES = 2;
     private final int ACE_DEUCE = 3;
     private final int BOX_CARS = 12;
-
-    private int point;
-    private int currentRolls;
 
 
     /**
@@ -73,6 +75,8 @@ public class Craps
         totalGamesCount = 0;
         totalDieRolls = 0;
         tally = new int[0];
+        totalWins = 0;
+        openingGames = 0;
         openingWins = 0;
         openingLoses = 0;
         longestGame = 0;
@@ -92,7 +96,6 @@ public class Craps
     public void playGame(int dice, int sides)
     {
         resetGame();
-
         point = rollDice(dice, sides);
         boolean continue_state = true;  //The game continues by default.
 
@@ -110,46 +113,60 @@ public class Craps
         if (continue_state)
         {
             int currentTurn;
-
             do {
                 currentTurn = rollDice(dice,sides);
-                if (currentTurn == point)
-                {
+                if (currentTurn == point) {
                     endGame(true,false,currentRolls);
-                }
-                else if (currentTurn == NATURAL)
-                {
+                }   //end if
+                else if (currentTurn == NATURAL) {
                     endGame(false,false,currentRolls);
-                }
-            } while (currentTurn != 7 && currentTurn != point);
+                }   //end if
+            } while (currentTurn != 7 && currentTurn != point); // end loop
         }   //end if
     }
 
 
     /**
-     *  Method for resetting the game. Makes sure no variables have weird
-     *  values at the start of the game.
+     * Method for resetting the game. Makes sure no variables have weird
+     * values at the start of the game.
      */
     private void resetGame()
     {
-        currentRolls = 0;
         point = 0;
+        currentRolls = 0;
     }
 
 
     /**
+     * Method that handles all the end game possibilities.
      *
+     * @param won       A boolean type, true if the shooter won the game, false
+     *                  if the shooter lost.
+     * @param opening   A boolean type, true if the game got resolved in the
+     *                  coming out play, regardless of whether or not the
+     *                  shooter won.
      */
     private void endGame(boolean won, boolean opening, int rolls)
     {
         totalGamesCount++;
+        totalDieRolls += currentRolls;
         updateTally(rolls);
+
+        if(won)
+        {
+            totalWins++;
+        }
+
+        if(opening)
+        {
+            openingGames++;
+        }
 
         if (won && opening)
         {
             openingWins++;
         }   //end if
-        if (!won && opening)
+        else if (!won && opening)
         {
             openingLoses++;
         }   //end if
@@ -179,21 +196,8 @@ public class Craps
             sum += Die.rollDie(sides);
         }   //end loop
 
-        totalDieRolls += dice;
         currentRolls += dice;
         return sum;
-    }
-
-
-    /**
-     * Calculates the average length for a game of craps.
-     *
-     * @return          The total rolls for all the games divided by the
-     *                  total games played.
-     */
-    public double averageLength()
-    {
-        return ((double) totalDieRolls / (double) totalGamesCount);
     }
 
 
@@ -205,7 +209,7 @@ public class Craps
     private void updateTally(int rolls)
     {
         final int MAX_ROLLS = 21;   //We are only keeping track of games that
-                                    // go up to 21.
+        // go up to 21.
         if (rolls > MAX_ROLLS)
         {
             rolls = MAX_ROLLS;
@@ -217,5 +221,111 @@ public class Craps
         System.arraycopy(temp, 0, tally, 0, temp.length);
 
         tally[tally.length - 1] = rolls;
+    }
+
+
+    /**
+     * Getter method for totalGamesCount
+     *
+     * @return      totalGamesCount
+     */
+    public int getTotalGamesCount()
+    {
+        return totalGamesCount;
+    }
+
+
+    /**
+     * Getter method for totalDieRolls
+     *
+     * @return      totalDieRolls
+     */
+    public int getTotalDieRolls()
+    {
+        return totalDieRolls;
+    }
+
+    /**
+     * Getter method for tally
+     *
+     * @return      tally
+     */
+    public int[] getTally()
+    {
+        return tally;
+    }
+
+
+    /**
+     * Calculates the average length for a game of craps.
+     *
+     * @return          The total rolls for all the games divided by the
+     *                  total games played.
+     */
+    public double averageLength()
+    {
+        return (((double) totalDieRolls) / ((double) totalGamesCount));
+    }
+
+
+    /**
+     * Method for determining the winning probability overall.
+     *
+     * @return      totalWins/totalGames
+     */
+    public double winningOutcome()
+    {
+        return (((double) totalWins) / ((double) totalGamesCount)) * 100.0;
+    }
+
+
+    /**
+     * Getter method for openingWigs
+     *
+     * @return      openingWins
+     */
+    public int getOpeningWins()
+    {
+        return openingWins;
+    }
+
+
+    /**
+     * Method for calculating the the outcome probability of winning on the
+     * coming out.
+     *
+     * @return      openingWins/openingGames
+     */
+    public double openingWinsOutcome()
+    {
+        return (((double) openingWins) / ((double) (openingGames))) * 100.0;
+    }
+
+
+    /**
+     * Getter method for openingLoses
+     *
+     * @return      openingLoses
+     */
+    public int getOpeningLoses()
+    {
+        return openingLoses;
+    }
+
+
+    /*public double openingGameEnd()
+    {
+
+    }*/
+
+
+    /**
+     * Getter method for longestGame
+     *
+     * @return      longestGame
+     */
+    public int getLongestGame()
+    {
+        return longestGame;
     }
 }
