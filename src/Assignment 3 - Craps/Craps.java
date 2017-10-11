@@ -54,6 +54,13 @@ public class Craps
     private int openingLoses;
     private int longestGame;
 
+    private final int NATURAL = 7;
+    private final int YO_LEVEN = 11;
+    private final int SNAKE_EYES = 2;
+    private final int ACE_DEUCE = 3;
+    private final int BOX_CARS = 12;
+
+    private int point;
     private int currentRolls;
 
 
@@ -70,54 +77,63 @@ public class Craps
         openingLoses = 0;
         longestGame = 0;
 
+        point = 0;
         currentRolls = 0;
     }
 
 
     /**
+     * Method for actually playing the game. Implements the rules for
+     * non-betting Craps.
      *
+     * @param dice      The number of dice we are playing with.
+     * @param sides     The number of sides each die have.
      */
     public void playGame(int dice, int sides)
     {
-        final int POINT = rollDice(dice, sides);
+        resetGame();
 
-        // Accepted names for opening rolls
-        final int NATURAL = 7, YO_LEVEN = 11;
-        final int SNAKE_EYES = 2, ACE_DEUCE = 3, BOX_CARS = 12;
-        // Codes for game state
-        final int WIN = 1, LOSS = 2, CONTINUE = 3;
-        int state = CONTINUE;
+        point = rollDice(dice, sides);
+        boolean continue_state = true;  //The game continues by default.
 
-        if (POINT == NATURAL || POINT == YO_LEVEN) {
+        if (point == NATURAL || point == YO_LEVEN)
+        {
             endGame(true, true, currentRolls);
-            state = WIN;
-        }   //end if
-        else if (POINT == SNAKE_EYES || POINT == ACE_DEUCE || POINT == BOX_CARS) {
+            continue_state = false; //stop game
+        }
+        else if (point == SNAKE_EYES || point == ACE_DEUCE || point == BOX_CARS)
+        {
             endGame(false, true, currentRolls);
-            state = LOSS
-        }   //end if
+            continue_state = false; //stop game
+        }
 
-
-        if (state == CONTINUE)
+        if (continue_state)
         {
             int currentTurn;
 
-            do
-            {
+            do {
                 currentTurn = rollDice(dice,sides);
-
-                if ()
-            }
-        }
+                if (currentTurn == point)
+                {
+                    endGame(true,false,currentRolls);
+                }
+                else if (currentTurn == NATURAL)
+                {
+                    endGame(false,false,currentRolls);
+                }
+            } while (currentTurn != 7 && currentTurn != point);
+        }   //end if
     }
 
 
     /**
-     *
+     *  Method for resetting the game. Makes sure no variables have weird
+     *  values at the start of the game.
      */
-    public void resetGame()
+    private void resetGame()
     {
         currentRolls = 0;
+        point = 0;
     }
 
 
@@ -196,7 +212,7 @@ public class Craps
         }   //end if
 
         final int[] temp = tally;
-        tally = new int[tally.length + 1];
+        tally = new int[temp.length + 1];
 
         System.arraycopy(temp, 0, tally, 0, temp.length);
 
