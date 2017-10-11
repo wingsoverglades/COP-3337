@@ -57,7 +57,6 @@ public class Craps
     private int currentRolls;
 
 
-
     /**
      * Constructor for the Craps class. Takes no arguments and returns no
      * values.
@@ -78,44 +77,38 @@ public class Craps
     /**
      *
      */
-    public void playGame(int dice, int faces)
+    public void playGame(int dice, int sides)
     {
-
-    }
-
-
-    /**
-     * A method for the "coming out" play that has special rules
-     *
-     * @return          A code 1-3: 1 means that the game was won in the
-     *                  coming out move, 2 means that the game was lost in
-     *                  the coming out move, and 3 means the game must go on.
-     */
-    private int comingOut(final int DICE, final int SIDES)
-    {
-        final int POINT = rollDice(DICE, SIDES);
+        final int POINT = rollDice(dice, sides);
 
         // Accepted names for opening rolls
-        final int NATURAL = 7;
-        final int YO_LEVEN = 11;
-        final int SNAKE_EYES = 2;
-        final int ACE_DEUCE = 3;
-        final int BOX_CARS = 12;
+        final int NATURAL = 7, YO_LEVEN = 11;
+        final int SNAKE_EYES = 2, ACE_DEUCE = 3, BOX_CARS = 12;
+        // Codes for game state
+        final int WIN = 1, LOSS = 2, CONTINUE = 3;
+        int state = CONTINUE;
 
-        final int WIN = 1;
-        final int LOSS = 2;
-        final int CONTINUE = 3;
-
-        if(POINT == NATURAL || POINT == YO_LEVEN)
-        {
-            return WIN;
+        if (POINT == NATURAL || POINT == YO_LEVEN) {
+            endGame(true, true, currentRolls);
+            state = WIN;
         }   //end if
-        else if(POINT == SNAKE_EYES || POINT == ACE_DEUCE || POINT == BOX_CARS)
-        {
-            return LOSS;
+        else if (POINT == SNAKE_EYES || POINT == ACE_DEUCE || POINT == BOX_CARS) {
+            endGame(false, true, currentRolls);
+            state = LOSS
         }   //end if
 
-        return CONTINUE;
+
+        if (state == CONTINUE)
+        {
+            int currentTurn;
+
+            do
+            {
+                currentTurn = rollDice(dice,sides);
+
+                if ()
+            }
+        }
     }
 
 
@@ -136,20 +129,21 @@ public class Craps
         totalGamesCount++;
         updateTally(rolls);
 
-        if(won && opening)
+        if (won && opening)
         {
             openingWins++;
-        }
-        if(!won && opening)
+        }   //end if
+        if (!won && opening)
         {
             openingLoses++;
-        }
+        }   //end if
 
-        if(rolls > longestGame)
+        if (rolls > longestGame)
         {
             longestGame = rolls;
-        }
+        }   //end if
     }
+
 
     /**
      * Rolls the specified number of dice with the specified number of faces
@@ -164,7 +158,7 @@ public class Craps
     {
         int sum = 0;    //Start at 0 in order to simplify addition.
 
-        for(int i = 0; i < dice; i++)
+        for (int i = 0; i < dice; i++)
         {
             sum += Die.rollDie(sides);
         }   //end loop
@@ -196,7 +190,7 @@ public class Craps
     {
         final int MAX_ROLLS = 21;   //We are only keeping track of games that
                                     // go up to 21.
-        if(rolls > MAX_ROLLS)
+        if (rolls > MAX_ROLLS)
         {
             rolls = MAX_ROLLS;
         }   //end if
