@@ -61,11 +61,11 @@ public class Die
         if(sides < MIN_SIDES)
         {
             sides = MIN_SIDES;
-        }
+        }   //end if
         if(sides > MAX_SIDES)
         {
             sides = MAX_SIDES;
-        }
+        }   //end if
 
         final int DIE_MINIMUM = 1;
         return (int)(Math.random() * sides + DIE_MINIMUM);
