@@ -245,6 +245,7 @@ public class Craps
         return totalDieRolls;
     }
 
+
     /**
      * Getter method for tally
      *
@@ -291,7 +292,7 @@ public class Craps
 
 
     /**
-     * Method for calculating the the outcome probability of winning on the
+     * Method for calculating the outcome probability of winning on the
      * coming out.
      *
      * @return      openingWins/openingGames
@@ -313,10 +314,28 @@ public class Craps
     }
 
 
-    /*public double openingGameEnd()
+    /**
+     * Method for calculating the outcome probability of losing on the coming
+     * out
+     *
+     * @return      openingLoses/openingGames
+     */
+    public double openingLosesOutcome()
     {
+        return  (((double) openingLoses) / ((double) (openingGames))) * 100.0;
+    }
 
-    }*/
+
+    /**
+     * Method for calculating the outcome probability of the game ending at
+     * the coming out
+     *
+     * @return      openingGames / totalGamesCount
+     */
+    public double openingGameEndOutcome()
+    {
+        return (((double) (openingGames)) / ((double) totalGamesCount)) * 100.0;
+    }
 
 
     /**

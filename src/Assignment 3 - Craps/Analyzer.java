@@ -75,25 +75,66 @@ public class Analyzer
             game.playGame(2, 6);
         }
 
-        //Tier 1 of output
+        // 1
         System.out.println("Total number of games played: "
                 + game.getTotalGamesCount());
+        // 2
         System.out.println("Total number of rolls for all games: "
                 + game.getTotalDieRolls());
+        // 3
         for(int i = 0; i < game.getTally().length; i++)
         {
             System.out.println("Tally for game " + i + ": "
                     + game.getTally()[i]);
         }
+        // 4
         System.out.printf("Average length of the games played: %.5f\n",
                 game.averageLength());
 
-        //Tier 2 of output
-        System.out.println("Expected probability of winning overall: ");
+        // 5 TODO
+        System.out.println("Expected probability of winning overall: " +
+                "UNIMPLEMENTED");
+        // 6
         System.out.printf("Probability of winning: %.5f%%\n",
                 game.winningOutcome());
 
-        //Tier 3 of output
-        System.out.println("Total");
+        // 7
+        System.out.println("Total number of wins that occurred on the coming "
+                + "out roll: " + game.getOpeningWins());
+
+        // 8 TODO
+        System.out.println("Expected probability of winning on the coming out"
+                + " roll: UNIMPLEMENTED");
+        // 9
+        System.out.printf("Probability of winning on coming out: %.5f%%\n",
+                game.openingWinsOutcome());
+
+        // 10
+        System.out.println("Total number of loses that occurred on the coming "
+                + "out roll: " + game.getOpeningLoses());
+
+        // 11 TODO
+        System.out.println("Expected probability of losing on the coming out "
+                + "roll: UNIMPLEMENTED");
+        // 12
+        System.out.printf("Probability of losing on coming out: %.5f%%\n",
+                game.openingLosesOutcome());
+
+        //13 TODO
+        System.out.println("Expected probability of the games ending (win or"
+                + " loss) on the coming out roll: UNIMPLEMENTED");
+        //14
+        System.out.printf("Probability of game ending on coming out: %.5f%%\n",
+                game.openingGameEndOutcome());
+
+        //15 TODO
+        System.out.println("Expected probability of the game continuing after"
+                + " the coming out roll: UNIMPLEMENTED");
+        //16
+        System.out.printf("Probability of game continuing past coming out: "
+                + "%.5f\n", Math.abs(game.openingGameEndOutcome() - 100.0));
+
+        //17
+        System.out.println("Longest game played: " + game.getLongestGame());
     }
 }
