@@ -20,28 +20,42 @@
 | 	javac Analyzer.java Craps.java Die.java
 |	java Analyzer
 |
-|   Purpose:        [A description of why this class exists.  For what
-|                   reason was it written?  Which jobs does it perform?]
+|   Purpose:        This class exists to simulate the game of craps and keep
+|                   track of all the data. The game is living and breathing
+|                   and the instance variables help with the data needed in
+|                   the program later on.
 |
-|   Inherits From:  The object class.
+|   Inherits From:  None
 |
 |   Interfaces:     None
 |
 +-------------------------------------------------------------------------------
 |
-|   Constants:  [Name all public class constants, and provide a very
-|                   brief (but useful!) description of each.]
+|   Constants:  No public class constants
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:  [List the names and arguments of all defined
-|                   constructors.]
+|   Constructors:   1 constructor: Craps, takes no arguments and instantiates
+|                   the field variables.
 |
-|   Class Methods:  [List the names, arguments, and return types of all
-|                   private class methods.]
+|   Class Methods:  void resetGame() takes no arguments,
+|                   void endGame() takes two boolean and an int,
+|                   int rollDice() takes two ints,
+|                   void updateTally() takes one int
 |
-|   Instance Methods:  [List the names, arguments, and return types of all
-|                   public instance methods.]
+|   Instance Methods:
+|                   void playGame() takes two ints,
+|                   int getTotalGamesCount() takes no arguments,
+|                   int getTotalDieRolls() takes no arguments,
+|                   int[] getTally() takes no arguments,
+|                   double averageLength() takes no arguments,
+|                   double winningOutcome() takes no arguments,
+|                   int getOpeningWins() takes no arguments,
+|                   double openingWinsOutcome() takes no arguments,
+|                   int getOpeningLoses() takes no arguments,
+|                   double openingLosesOutcome() takes no arguments,
+|                   double openingGameEndOutcome() takes no arguments,
+|                   int getLongestGame() takes no arguments
 |
 *=============================================================================*/
 
@@ -208,19 +222,19 @@ public class Craps
      */
     private void updateTally(int rolls)
     {
-        final int MAX_ROLLS = 21;   //We are only keeping track of games that
+        final int MAX_TALLY = 22;   //We are only keeping track of games that
         // go up to 21.
-        if (rolls > MAX_ROLLS)
+        if (tally.length < MAX_TALLY)
         {
-            rolls = MAX_ROLLS;
-        }   //end if
 
-        final int[] temp = tally;
-        tally = new int[temp.length + 1];
 
-        System.arraycopy(temp, 0, tally, 0, temp.length);
+            final int[] temp = tally;
+            tally = new int[temp.length + 1];
 
-        tally[tally.length - 1] = rolls;
+            System.arraycopy(temp, 0, tally, 0, temp.length);
+
+            tally[tally.length - 1] = rolls;
+        }
     }
 
 
