@@ -1,0 +1,4 @@
+min
+max
+
+return random number from range(min,max)

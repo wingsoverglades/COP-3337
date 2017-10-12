@@ -1,0 +1,16 @@
+reset game
+
+point = roll dice
+
+if point 7 or 11
+    win
+if point 2, 3 or 12
+    lose
+
+do
+    turn = roll dice
+    if turn point
+        win
+    if turn 7
+        lose
+while turn not point and not 7

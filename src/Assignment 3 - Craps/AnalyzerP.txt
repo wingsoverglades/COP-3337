@@ -1,0 +1,7 @@
+games = input()
+validate input
+
+for 0..games
+    play game
+
+print information
