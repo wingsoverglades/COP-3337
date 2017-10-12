@@ -20,29 +20,31 @@
 | 
 +-------------------------------------------------------------------------------  
 |  
-|   Description:    [Describe the program's goal, IN DETAIL.]  
+|   Description:    The Program's goal is to simulate a game of non-betting
+|                   craps and using the moves to display data about the
+|                   probabilities in the game.
 |                  
-|   Input:          [Describe the sources and formats of all user-supplied input
-|                   required by the program.]  
+|   Input:          The user inputs a number from 1 to 1,000,000 which is
+|                   used to determine the number of games to run.
 |  
-|   Output:         [Describe the output that the user should expect the program
-|                   to produce.]  
+|   Output:         The user should expect: total number of games, total
+|                   number of rolls, a tally of the 22 first games, average
+|                   length of rolls, probability of winning, total number of
+|                   wins in the opening, probability of winning in the
+|                   opening, total number of loses in opening, probability of
+|                   losing in the opening, probability of the games ending on
+|                   the coming out, probability of the games continuing after
+|                   the coming up, longest game played
 |  
-|   Process:        [Names of standard algorithms employed, explanations of why
-|                   things were done they way they were done, etc. This is the
-|                   place for technical information that another programmer
-|                   would like to know.]  
+|   Process:        This tester file itself does not have much in the way of
+|                   algorithms. The only algorith of note is the for loop
+|                   used to print the contents of the tally array which is a
+|                   standard array iteration.
 |  
 |   Required Features Not Included:  
-|                   [If the assignment specifies a feature that you were unable
-|                   to include in the program, mention that omission here.
-|                   Otherwise, state that you were able to include all of the
-|                   required features in your program. Being honest here may
-|                   save you some points.]  
+|                   None of the expected probability cases were implemented.
 |  
-|   Known Bugs:     [If you know of any problems with the code, provide details
-|                   here; otherwise, clearly state that you know of no logic
-|                   errors. Being honest here may save you some points.]  
+|   Known Bugs:     No known bugs
 *=============================================================================*/
 
 import java.util.Scanner;   //Provides the scanner utility for user input.
@@ -84,7 +86,7 @@ public class Analyzer
         // 3
         for(int i = 0; i < game.getTally().length; i++)
         {
-            System.out.println("Tally for game " + i + ": "
+            System.out.println("Tally for game " + (i + 1) + ": "
                     + game.getTally()[i]);
         }
         // 4
