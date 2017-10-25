@@ -52,4 +52,16 @@ class BetterRectangle extends Rectangle
         return this.getMidpoint == r.getMidpoint()
 
     def scaleBy(scale):
-        setSize(getX() * scale, getY() * scale
+        try:
+            setSize(getX() * scale, getY() * scale
+        return true
+
+        catch:
+            return false
+
+
+bRectA = BetterRectangle(4,3)
+bRectB = BetterRectangle(bRectA)
+bRectC = BetterRectangle(1,1,3,4)
+bRectD = BetterRectangle()
+
