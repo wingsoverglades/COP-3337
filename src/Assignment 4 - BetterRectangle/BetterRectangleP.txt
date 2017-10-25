@@ -1,0 +1,55 @@
+class BetterRectangle extends Rectangle
+    def BetterRectangle():
+        setLocation(0,0)
+        setSize(1,1)
+
+    def BetterRectangle(w,h):
+        setLocation(0,0)
+        setSize(w,h)
+
+    def BetterRectangle(x,y,w,h)
+        setLocation(x,y)
+        setSize(w,h)
+
+    def BetterRectangle(r)
+        setLocation(super.getX(), super.GetY())
+        setSize(super.getWidth(), super.getHeight())
+
+    def equals(r):
+        return this.congruent(r) && this.concentric(r)
+
+    def toString():
+        return "Area: " + getArea + "\nPerimeter: " + getPerimeter
+            + "\nSlope: " + getSlope() + "\nMidpoint: " + getMidpoint()
+            + "\nAnchor: (" + getX() + "," + getY() + ")"
+            + "\nWidth: " + getWidth() + "\nHeight: " + getHeight()
+
+    def getArea():
+        return (getWidth() * getHeight())
+
+    def getPerimeter():
+        return ((getWidth() * 2) + (GetHeight() * 2))
+
+    def getSlope():
+        return ((double) getHeight() / (double) getWidth())
+
+    def getMidpoint():
+        # TODO
+
+    def congruent(r):
+        # TODO
+
+    def congruent(r):
+        # TODO
+
+    def equivalent(r):
+        # TODO
+
+    def similar(r):
+        #TODO
+
+    def concentric(r):
+        # TODO
+
+    def scaleBy(scale):
+        # TODO
