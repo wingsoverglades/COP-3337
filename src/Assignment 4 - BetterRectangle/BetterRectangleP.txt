@@ -34,22 +34,22 @@ class BetterRectangle extends Rectangle
         return ((double) getHeight() / (double) getWidth())
 
     def getMidpoint():
-        # TODO
+        final int X_COORD = (int)((double)getWidth / 2.0) + getX()
+        final int Y_COORD = (int)((double)getHeight / 2.0) + getY()
+        return Point(x_COORD,Y_COORD)
 
     def congruent(r):
-        # TODO
-
-    def congruent(r):
-        # TODO
+        return this.getWidth() == r.getWidth()
+            && this.getHeight() == r.getHeigth()
 
     def equivalent(r):
-        # TODO
+        return this.getPerimeter() == r.getPerimeter()
 
     def similar(r):
-        #TODO
+        return this.getArea() == r.getArea()
 
     def concentric(r):
-        # TODO
+        return this.getMidpoint == r.getMidpoint()
 
     def scaleBy(scale):
-        # TODO
+        setSize(getX() * scale, getY() * scale
