@@ -33,14 +33,23 @@
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:  [List the names and arguments of all defined
-|                   constructors.]
+|   Constructors:   BetterRectangle() takes no arguments, BetterRectangle()
+|                   takes two int arguments, BetterRectangle() takes four int
+|                   arguments and BetterRectangle() takes another
+|                   BetterRectangle object.
 |
-|   Class Methods:  [List the names, arguments, and return types of all
-|                   private class methods.]
+|   Class Methods:  No private class methods
 |
-|   Instance Methods:  [List the names, arguments, and return types of all
-|                   public instance methods.]
+|   Instance Methods:
+|                   boolean equals() takes one BetterRectangle object, String
+|                   toString() takes no arguments, int getArea() takes no
+|                   arguments, int getPerimeter() takes no arguments, double
+|                   getSlope() takes no arguments, Point getMidpoint() takes no
+|                   arguments, boolean congruent() takes one BetterRectangle
+|                   argument, boolean equivalent() takes one BetterRectangle
+|                   object, boolean similar() takes one BetterRectangle
+|                   argument, boolean concentric() takes one Better rectangle
+|                   argument, boolean scaleBy() takes one int argument.
 |
 *=============================================================================*/
 
@@ -93,12 +102,26 @@ public class BetterRectangle extends Rectangle
         setSize((int) r.getWidth(), (int) r.getHeight());
     }
 
+    /**
+     * This method implements an equals method for the BetterRectangle class
+     * and determines if another rectangle has the same values as this.
+     *
+     * @param r     The other rectangle being compared.
+     * @return      True if the rectangles are the same.
+     */
     public boolean equals(BetterRectangle r)
     {
-        return this.
+        return this.congruent(r) && this.concentric(r);
     }
 
-    public String toString()
+    /**
+     * This method overrides the toString method in the super class and
+     * replaces it with its own toString that returns the relevant information.
+     *
+     * @return      A String containing the area, perimeter, slope, midpoint,
+     *              anchor point, width and height of the rectangle.
+     */
+    public @Override String toString()
     {
         return "Area: " + getArea() + "\nPerimeter: " + getPerimeter()
                 + "\nSlope: " + getSlope() + "\nMidpoint: " + getMidpoint()
@@ -106,24 +129,40 @@ public class BetterRectangle extends Rectangle
                 + "\nWidth: " + getWidth() + "\nHeight: " + getHeight();
     }
 
+    /**
+     * This method finds and returns the area of the rectangle.
+     *
+     * @return      The area of the rectangle.
+     */
     public int getArea()
     {
         return (int)(getWidth() * getHeight());
     }
 
+    /**
+     * This method finds and returns the perimeter of the rectangle.
+     *
+     * @return      The perimeter of the rectangle.
+     */
     public int getPerimeter()
     {
         return (int)((getWidth() * 2.0) + (getHeight() * 2.0));
     }
 
+    /**
+     * This method finds the slope of the opposite corners of the rectangle.
+     *
+     * @return      The slope of the rectangle.
+     */
     public double getSlope()
     {
         return (getHeight() / getWidth());
     }
 
     /**
+     *This method finds the midpoint of the rectangle and returns it in a Point.
      *
-     * @return
+     * @return      A Point object containing the midpoint of the rectangle.
      */
     public Point getMidpoint()
     {
