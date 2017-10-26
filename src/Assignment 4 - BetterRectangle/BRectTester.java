@@ -34,15 +34,10 @@
 |                   by professor William Feild.
 |  
 |   Required Features Not Included:  
-|                   [If the assignment specifies a feature that you were unable
-|                   to include in the program, mention that omission here.
-|                   Otherwise, state that you were able to include all of the
-|                   required features in your program. Being honest here may
-|                   save you some points.]  
+|                   No expected values.
 |  
-|   Known Bugs:     [If you know of any problems with the code, provide details
-|                   here; otherwise, clearly state that you know of no logic
-|                   errors. Being honest here may save you some points.]  
+|   Known Bugs:     The ScaleBy method does not work properly with negative
+|                   numbers, the dimensions are set to 0.
 *=============================================================================*/
 
 public class BRectTester
@@ -55,6 +50,22 @@ public class BRectTester
 
     public static void main(String[] args)
     {
+        System.out.println(bRectB.equals(bRectC));
+        System.out.println(bRectB.congruent(bRectC));
+        System.out.println(bRectB.similar(bRectC));
+        System.out.println(bRectB.equivalent(bRectC));
+        System.out.println(bRectB.concentric(bRectC));
+        System.out.println(bRectB);
+        System.out.println(bRectC);
+
+        System.out.println(bRectA.getArea());
+        System.out.println(bRectA.getPerimeter());
+        System.out.println(bRectA.getSlope());
+        System.out.println(bRectA.getMidpoint());
         System.out.println(bRectA);
+
+        System.out.println(bRectD.scaleBy(3));
+        System.out.println(bRectD.scaleBy(-3));
+        System.out.println(bRectD);
     }
 }
