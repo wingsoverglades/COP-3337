@@ -20,19 +20,16 @@
 | 	javac BetterRectangle.java
 |	java
 |
-|   Purpose:  [A description of why this class exists.  For what
-|                   reason was it written?  Which jobs does it perform?]
+|   Purpose:    This program exists to solve some of the issues with the
+|               original rectangle class.
 |
-|   Inherits From:  [If this class is a subclass of another, name it.
-|                   If not, just say "None."]
+|   Inherits From:  This class inherits from the Rectangle class.
 |
-|   Interfaces:  [If any predefined interfaces are implemented by
-|                  this class, name them.  If not, ... well, you know.]
+|   Interfaces:  None
 |
 +-------------------------------------------------------------------------------
 |
-|   Constants:  [Name all public class constants, and provide a very
-|                   brief (but useful!) description of each.]
+|   Constants:  No public constants
 |
 +-------------------------------------------------------------------------------
 |
@@ -94,5 +91,114 @@ public class BetterRectangle extends Rectangle
     {
         setLocation((int) r.getX(), (int) r.getY());
         setSize((int) r.getWidth(), (int) r.getHeight());
+    }
+
+    public boolean equals(BetterRectangle r)
+    {
+        return this.
+    }
+
+    public String toString()
+    {
+        return "Area: " + getArea() + "\nPerimeter: " + getPerimeter()
+                + "\nSlope: " + getSlope() + "\nMidpoint: " + getMidpoint()
+                + "\nAnchor: (" + getX() + "," + getY() + ")"
+                + "\nWidth: " + getWidth() + "\nHeight: " + getHeight();
+    }
+
+    public int getArea()
+    {
+        return (int)(getWidth() * getHeight());
+    }
+
+    public int getPerimeter()
+    {
+        return (int)((getWidth() * 2.0) + (getHeight() * 2.0));
+    }
+
+    public double getSlope()
+    {
+        return (getHeight() / getWidth());
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Point getMidpoint()
+    {
+        final int X_COORD = (int)((getWidth() / 2.0) + getX());
+        final int Y_COORD = (int)((getHeight() / 2.0) + getY());
+        return new Point(X_COORD,Y_COORD);
+    }
+
+    /**
+     * This method determines whether the two rectangles are congruent
+     *
+     * @param r     The rectangle being compared.
+     * @return      True if the rectangles have the same width and height.
+     */
+    public boolean congruent(BetterRectangle r)
+    {
+        return this.getWidth() == r.getWidth()
+                && this.getHeight() == r.getHeight();
+    }
+
+    /**
+     * This method determines whether the two rectangles share the same
+     * perimeter
+     *
+     * @param r     The rectangle being compared.
+     * @return      True if the two rectangles share the same perimeter.
+     */
+    public boolean equivalent(BetterRectangle r)
+    {
+        return this.getPerimeter() == r.getPerimeter();
+    }
+
+    /**
+     * THis method determines if the two rectangles have the same area.
+     *
+     * @param r     The rectangle that is being compared.
+     * @return      True if the rectangles share the same area.
+     */
+    public boolean similar(BetterRectangle r)
+    {
+        return this.getArea() == r.getArea();
+    }
+
+    /**
+     * This method determines whether or not the two rectangles have the same
+     * midpoint.
+     *
+     * @param r     The rectangle that is being compared
+     * @return      True if the two rectangle share a midpoint, false if they
+     *              do not.
+     */
+    public boolean concentric(BetterRectangle r)
+    {
+        return this.getMidpoint().equals(r.getMidpoint());
+    }
+
+    /**
+     * This method serves to increase or decrease the size of the rectangles
+     * sides by a set scale
+     *
+     * @param scale     The scale by which the rectangle sides are multiplied.
+     * @return          True if the the scale was a success, False if there
+     *                  was a failure.
+     */
+    public boolean scaleBy(int scale)
+    {
+        try
+        {
+            this.setSize((int) (this.getX() * (double) scale),
+                    (int) (this.getY() * (double) scale));
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+        return true;
     }
 }
