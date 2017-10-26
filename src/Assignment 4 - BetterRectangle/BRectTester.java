@@ -14,24 +14,24 @@
 |	______________________________________ [Signature]
 |  
 |   Language:       Java 8
-|   Compile/Run:    [How to Compile and Execute this program, IN DETAIL.] 
+|   Compile/Run:
 | 	javac BRectTester.java BetterRectangle.java
 |   java BRectTester
 | 
 +-------------------------------------------------------------------------------  
 |  
-|   Description:    [Describe the program's goal, IN DETAIL.]  
+|   Description:    The goal of this program is to reinvent the rectangle
+|                   class and fix some of its shortcomming.
 |                  
-|   Input:          [Describe the sources and formats of all user-supplied input
-|                   required by the program.]  
+|   Input:          No user input
 |  
-|   Output:         [Describe the output that the user should expect the program
-|                   to produce.]  
+|   Output:         The user should expect the toString output of all tested
+|                   rectangles and any other relevant information pertaining to
+|                   the specific rectangles being tested.
 |  
-|   Process:        [Names of standard algorithms employed, explanations of why
-|                   things were done they way they were done, etc. This is the
-|                   place for technical information that another programmer
-|                   would like to know.]  
+|   Process:        The BetterRectangle class makes extensive use of basic
+|                   geometric formulas that were provided in the specifications
+|                   by professor William Feild.
 |  
 |   Required Features Not Included:  
 |                   [If the assignment specifies a feature that you were unable
@@ -47,8 +47,14 @@
 
 public class BRectTester
 {
+    //These rectangles and values are specified in the specifications.
+    private static BetterRectangle bRectA = new BetterRectangle(4,3);
+    private static BetterRectangle bRectB = new BetterRectangle(bRectA);
+    private static BetterRectangle bRectC = new BetterRectangle(1,1,3,4);
+    private static BetterRectangle bRectD = new BetterRectangle();
+
     public static void main(String[] args)
     {
-
+        System.out.println(bRectA);
     }
 }
