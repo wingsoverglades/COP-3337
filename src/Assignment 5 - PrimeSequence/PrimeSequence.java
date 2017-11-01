@@ -47,7 +47,40 @@
 |
 *=============================================================================*/
 
-public class PrimeSequence
+public class PrimeSequence implements Sequence
 {
+    /**
+     * This method finds the next prime number.
+     * @param number    Find the next element after this value.
+     * @return          The next prime number after the argument.
+     */
+    @Override
+    public long next(long number)
+    {
 
+    }
+
+    /**
+     * This method determines whether or not a number is prime
+     *
+     * @param number    The number being tested
+     * @return          True if the number is prime, false otherwise.
+     */
+    public boolean isPrime(long number)
+    {
+        if (number == 2)
+        {
+            return true;
+        }
+
+        for (int i = 2; i < (int)Math.sqrt(number) + 1; i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
