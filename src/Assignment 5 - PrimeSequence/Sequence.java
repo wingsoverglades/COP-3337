@@ -47,8 +47,10 @@ public interface Sequence
     /**
      * This interface method finds the next element in the sequence.
      *
-     * @param number    Find the next element after this value.
      * @return          The value of the next element.
      */
-    long next(long number);
+    static long next(long number)
+    {
+        return 0;
+    }
 }
