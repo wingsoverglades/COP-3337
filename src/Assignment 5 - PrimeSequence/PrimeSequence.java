@@ -33,32 +33,51 @@
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:   No class constructors.
+|   Constructors:   Constructor PrimeSequence() takes an int as a parameter.
 |
 |   Class Methods:  No private class methods.
 |
 |   Instance Methods:
-|                   No instance methods.
+|                   int next() takes no parameters.
 |
 *=============================================================================*/
 
 public class PrimeSequence implements Sequence
 {
+    private int current;
+
+
     /**
-     * This method finds the next prime number.
-     * @param number    Find the next element after this value.
-     * @return          The next prime number after the argument.
+     * Constructor for the PrimeSequence class
+     *
+     * @param beginning     Sets this.current
      */
-    public static long next(long number)
+    public PrimeSequence(int beginning)
     {
-        long temp = number + 1;
+        current = beginning;
+    }
+
+
+    /**
+     * Finds the next number in the prime sequence.
+     *
+     * @return      The next number in the sequence.
+     */
+    @Override
+    public int next()
+    {
+        int temp = current + 1;
 
         while (!isPrime(temp))
         {
             temp++;
         }
+
+        this.current = temp;
+
         return temp;
     }
+
 
     /**
      * This method determines whether or not a number is prime
