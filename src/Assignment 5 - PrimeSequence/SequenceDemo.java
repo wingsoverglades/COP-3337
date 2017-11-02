@@ -14,18 +14,33 @@
 |	______________________________________ [Signature]
 |  
 |   Language:       Java 8
-|   Compile/Run:    [How to Compile and Execute this program, IN DETAIL.] 
-| 	javac SequenceDemo.java yyy.java java xxx
+|   Compile/Run:
+| 	javac SequenceDemo.java Sequence.java PrimeSequence.java
+|	java SequenceDemo
 | 
 +-------------------------------------------------------------------------------  
 |  
-|   Description:    [Describe the program's goal, IN DETAIL.]  
+|   Description:    Implement a Sequence interface to write program that
+|                   provides a defined number of primes starting at a defined
+                    point and give it fancy output.
 |                  
-|   Input:          [Describe the sources and formats of all user-supplied input
-|                   required by the program.]  
+|   Input:          Input will be provided on the command-line. Two input
+|                   constants will be placed on the command-line upon execution.
+|                   For example: java SequenceDemo 6 50; where the prime
+|                   sequence will start with the next prime after the first
+|                   number, and the second number (n) is the number of prime
+|                   numbers to be sequenced. Both numbers will be integers and
+|                   both numbers must be 1 or greater.
 |  
-|   Output:         [Describe the output that the user should expect the program
-|                   to produce.]  
+|   Output:         Output will provide a table of n prime numbers. The table
+|                   will be as close to “square” as possible - i.e. same number
+|                   of rows and columns - with at most 10 entries per row. All
+|                   entries will be right-aligned. Additionally, output will
+|                   include a “histogram” of the occurrences of the last digit
+|                   [0-9] of each prime number. The histogram will be horizontal
+|                   and will be scaled (as a percentage %) if required, with a
+|                   legend at the bottom to explain the scale and display the
+|                   total count of primes.
 |  
 |   Process:        [Names of standard algorithms employed, explanations of why
 |                   things were done they way they were done, etc. This is the
@@ -48,6 +63,6 @@ public class SequenceDemo
 {
     public static void main(String[] args)
     {
-
+        System.out.println(PrimeSequence.next(3));
     }
 }
