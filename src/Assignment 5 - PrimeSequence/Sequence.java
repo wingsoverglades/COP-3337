@@ -38,7 +38,7 @@
 |   Class Methods:  No class methods
 |
 |   Instance Methods:
-|                   long next() takes one long parameter.
+|                   int next() takes no parameters.
 |
 *=============================================================================*/
 
@@ -49,8 +49,5 @@ public interface Sequence
      *
      * @return          The value of the next element.
      */
-    static long next(long number)
-    {
-        return 0;
-    }
+    int next();
 }
