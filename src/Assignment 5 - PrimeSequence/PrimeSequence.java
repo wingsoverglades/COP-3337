@@ -80,7 +80,7 @@ public class PrimeSequence implements Sequence
 
 
     /**
-     * This method determines whether or not a number is prime
+     * This method determines whether or not a number is prime.
      *
      * @param number    The number being tested
      * @return          True if the number is prime, false otherwise.
