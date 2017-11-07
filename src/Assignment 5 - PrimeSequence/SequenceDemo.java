@@ -63,6 +63,80 @@ public class SequenceDemo
 {
     public static void main(String[] args)
     {
-        System.out.println(PrimeSequence.next(3));
+        validate(args);
+
+        PrimeSequence primer = new PrimeSequence(Integer.parseInt(args[0]));
+        int primes[] = new int[Integer.parseInt(args[1])];
+
+        for(int i = 0; i < primes.length; i++)
+        {
+            primes[i] = primer.next();
+        }
+
+        System.out.println(makeSquare(primes));
+        System.out.println(makeHistogram(primes));
+    }
+
+
+    /**
+     * Validates the commandline arguments passed to the programs and
+     * determines whether or not they are valid. WILL exit the program if
+     * valid input is not provided.
+     *
+     * @param args      The arguments passed to the commandline.
+     */
+    private static void validate(String[] args)
+    {
+        if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0)
+        {
+            System.out.println("Please only input integers greater than 1");
+            System.exit(1);
+        }
+    }
+
+
+    /**
+     * This method takes an array of integers and makes them into a "square"
+     *
+     * @param primes        The array of primes.
+     * @return              The String square.
+     */
+    private static String makeSquare(int[] primes)
+    {
+        int side = (int)Math.sqrt(primes.length);
+
+        if (side > 10)  //max number of rows is 10
+        {
+            side = 10;
+        }
+
+        String square = "";
+
+        for (int i = 0; i < primes.length; i++)
+        {
+            square = square + primes[i] + "\t";
+
+            if (i % side == 0)
+            {
+                square = square + "\n";
+            }
+        }
+
+        return square;
+    }
+
+
+    /**
+     * This method takes an array of integers and makes a histogram of their
+     * last digits.
+     *
+     * @param primes        The array of integers.
+     * @return              The String histogram.
+     */
+    private static String makeHistogram(int[] primes)
+    {
+        String histogram = "";
+
+        return histogram;
     }
 }
