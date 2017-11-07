@@ -87,6 +87,12 @@ public class SequenceDemo
      */
     private static void validate(String[] args)
     {
+        if (args.length < 2)
+        {
+            System.out.println("Please supply the program with two integer " +
+                    "arguments greater than 1");
+            System.exit(1);
+        }
         if (Integer.parseInt(args[0]) < 0 || Integer.parseInt(args[1]) < 0)
         {
             System.out.println("Please only input integers greater than 1");
@@ -114,12 +120,12 @@ public class SequenceDemo
 
         for (int i = 0; i < primes.length; i++)
         {
-            square = square + primes[i] + "\t";
-
-            if (i % side == 0)
+            if ((i != 0) && (i % side == 0))
             {
                 square = square + "\n";
             }
+
+            square += primes[i] + "\t";
         }
 
         return square;
