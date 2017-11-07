@@ -143,6 +143,38 @@ public class SequenceDemo
     {
         String histogram = "";
 
+        for (int i = 1; i <= 9; i++)
+        {
+            histogram += "[" + i + "]";
+            histogram += "\n";
+        }
+
         return histogram;
+    }
+
+
+    /**
+     * This method finds the occurrence of a number as the last digit in an
+     * array of ints.
+     *
+     * @param primes        The array of ints.
+     * @param digit         The number we are looking for
+     * @return              The occurence of the number.
+     */
+    private static int count(int[] primes, int digit)
+    {
+        int count = 0;
+
+        for (int prime : primes)
+        {
+            String asString = Integer.toString(prime);
+
+            if (asString.charAt(asString.length() - 1) == digit)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
