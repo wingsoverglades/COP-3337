@@ -66,6 +66,8 @@ public class Histogram
         {
             occurrences[i] = count(data, i);
         }
+
+        scale();
     }
 
 
@@ -96,6 +98,20 @@ public class Histogram
     }
 
 
+    /**
+     * This method returns the totak number of primes.
+     *
+     * @return      The total number of primes.
+     */
+    private int totalCount()
+    {
+        return data.length;
+    }
+
+
+    /**
+     * This method determines the scale for the histogram.
+     */
     private void scale()
     {
         int largest = 0;
@@ -119,6 +135,37 @@ public class Histogram
     @Override
     public String toString()
     {
-        return "";
+        String str = "";
+        int scaled;
+
+        for (int i = 0; i < occurrences.length; i++)
+        {
+            scaled = (int) ((double)occurrences[i] / (double) scale);
+            if (occurrences[i] > 0 && scaled == 0)
+            {
+                scaled = 1;
+                scaled = 1;
+            }
+
+            str += "[" + i + "]";
+
+            for (int j = 0; j < 20; j++)
+            {
+                if(scaled > j)
+                {
+                    str += "*";
+                }
+                else
+                {
+                    str += " ";
+                }
+            }
+
+            str += "(" + occurrences[i] + ","
+                    + ((int)(((double) occurrences[i] / totalCount()) * 100.0))
+                    + "%)\n";
+        }
+
+        return str;
     }
 }
