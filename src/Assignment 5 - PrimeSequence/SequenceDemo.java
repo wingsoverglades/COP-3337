@@ -15,7 +15,7 @@
 |  
 |   Language:       Java 8
 |   Compile/Run:
-| 	javac SequenceDemo.java Sequence.java PrimeSequence.java
+| 	javac SequenceDemo.java Sequence.java PrimeSequence.java Histogram.java
 |	java SequenceDemo
 | 
 +-------------------------------------------------------------------------------  
@@ -74,7 +74,7 @@ public class SequenceDemo
         }
 
         System.out.println(makeSquare(primes));
-        System.out.println(makeHistogram(primes));
+        System.out.println(new Histogram(0,9,primes));
     }
 
 
@@ -129,52 +129,5 @@ public class SequenceDemo
         }
 
         return square;
-    }
-
-
-    /**
-     * This method takes an array of integers and makes a histogram of their
-     * last digits.
-     *
-     * @param primes        The array of integers.
-     * @return              The String histogram.
-     */
-    private static String makeHistogram(int[] primes)
-    {
-        String histogram = "";
-
-        for (int i = 1; i <= 9; i++)
-        {
-            histogram += "[" + i + "]";
-            histogram += "\n";
-        }
-
-        return histogram;
-    }
-
-
-    /**
-     * This method finds the occurrence of a number as the last digit in an
-     * array of ints.
-     *
-     * @param primes        The array of ints.
-     * @param digit         The number we are looking for
-     * @return              The occurence of the number.
-     */
-    private static int count(int[] primes, int digit)
-    {
-        int count = 0;
-
-        for (int prime : primes)
-        {
-            String asString = Integer.toString(prime);
-
-            if (asString.charAt(asString.length() - 1) == digit)
-            {
-                count++;
-            }
-        }
-
-        return count;
     }
 }
