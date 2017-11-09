@@ -42,21 +42,17 @@
 |                   legend at the bottom to explain the scale and display the
 |                   total count of primes.
 |  
-|   Process:        [Names of standard algorithms employed, explanations of why
-|                   things were done they way they were done, etc. This is the
-|                   place for technical information that another programmer
-|                   would like to know.]  
+|   Process:        Formulated my own prime remainder method after reading
+|                   about the Chinese remainder method and thinking it too
+|                   hard to implement in full. I do not think I invented that
+|                   process but I came up with it on my own.
 |  
 |   Required Features Not Included:  
-|                   [If the assignment specifies a feature that you were unable
-|                   to include in the program, mention that omission here.
-|                   Otherwise, state that you were able to include all of the
-|                   required features in your program. Being honest here may
-|                   save you some points.]  
+|                   The numbers in the square are not right-hand aligned, I
+|                   implemented the histogram as well as I understood it but I
+|                   have a feeling I did it incorrectly.
 |  
-|   Known Bugs:     [If you know of any problems with the code, provide details
-|                   here; otherwise, clearly state that you know of no logic
-|                   errors. Being honest here may save you some points.]  
+|   Known Bugs:     No known bugs
 *=============================================================================*/
 
 public class SequenceDemo
