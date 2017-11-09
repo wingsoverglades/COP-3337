@@ -28,19 +28,15 @@
 |
 +-------------------------------------------------------------------------------
 |
-|   Constants:  [Name all public class constants, and provide a very
-|                   brief (but useful!) description of each.]
+|   Constants:      No class constants
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:  [List the names and arguments of all defined
-|                   constructors.]
+|   Constructors:       Constructor Histogram() takes two ints and an int array.
 |
-|   Class Methods:  [List the names, arguments, and return types of all
-|                   private class methods.]
+|   Class Methods:      No static class methods.
 |
-|   Instance Methods:  [List the names, arguments, and return types of all
-|                   public instance methods.]
+|   Instance Methods:   String toString() takes no arguments.
 |
 *=============================================================================*/
 
@@ -136,21 +132,15 @@ public class Histogram
     public String toString()
     {
         String str = "";
-        int scaled;
-
-        for (int i = 0; i < occurrences.length; i++)
-        {
+        int scaled = 0;
+        for (int i = 0; i < occurrences.length; i++) {
             scaled = (int) ((double)occurrences[i] / (double) scale);
             if (occurrences[i] > 0 && scaled == 0)
             {
                 scaled = 1;
-                scaled = 1;
             }
-
             str += "[" + i + "]";
-
-            for (int j = 0; j < 20; j++)
-            {
+            for (int j = 0; j < 20; j++) {
                 if(scaled > j)
                 {
                     str += "*";
@@ -159,13 +149,12 @@ public class Histogram
                 {
                     str += " ";
                 }
-            }
-
+            } //end loop
             str += "(" + occurrences[i] + ","
                     + ((int)(((double) occurrences[i] / totalCount()) * 100.0))
                     + "%)\n";
-        }
-
+        } //end loop
+        str += "scaled as %, * = " + scaled + "%\n";
         return str;
     }
 }
