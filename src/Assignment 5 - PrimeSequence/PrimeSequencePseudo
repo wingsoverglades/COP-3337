@@ -1,0 +1,27 @@
+input = raw_input()
+
+if input != VALID:
+    print "your input is invalid"
+    sys.exit(1)
+
+primes = []
+
+for 0..(input[2] - input[1])
+    primes[i] = find_prime[i + input[2]]
+
+str = ""
+
+for 0..primes.length:
+    if i == sqrt(primes.length):
+        str += "\n"
+    str += primes[i]
+
+str += "\n"
+
+
+for 0..9:
+    str += "[" + i + "]"
+    for 0..primes[i]:
+        str += "*"
+
+print str
