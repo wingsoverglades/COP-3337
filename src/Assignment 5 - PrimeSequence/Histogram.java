@@ -154,7 +154,7 @@ public class Histogram
                     + ((int)(((double) occurrences[i] / totalCount()) * 100.0))
                     + "%)\n";
         } //end loop
-        str += "scaled as %, * = " + scaled + "%\n";
+        str += "scaled as %, * = " + scale + "%\n";
         return str;
     }
 }

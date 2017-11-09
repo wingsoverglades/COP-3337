@@ -52,7 +52,8 @@
 |                   implemented the histogram as well as I understood it but I
 |                   have a feeling I did it incorrectly.
 |  
-|   Known Bugs:     No known bugs
+|   Known Bugs:     after the 150th prime number, the square is no longer...
+|                   square.
 *=============================================================================*/
 
 public class SequenceDemo
