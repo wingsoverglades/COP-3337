@@ -42,7 +42,7 @@
 |
 *=============================================================================*/
 
-public interface Sequence
+public interface SequenceOriginal
 {
     /**
      * This interface method finds the next element in the sequence.

@@ -42,7 +42,7 @@
 |
 *=============================================================================*/
 
-public class PrimeSequence implements Sequence
+public class PrimeSequence implements SequenceOriginal
 {
     private int current;
 
