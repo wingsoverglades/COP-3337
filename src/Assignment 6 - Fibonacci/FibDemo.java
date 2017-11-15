@@ -48,6 +48,6 @@ public class FibDemo
 {
     public static void main(String[] args)
     {
-
+        FibSequence fibo = new LoopFibSequence();
     }
 }

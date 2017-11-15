@@ -49,5 +49,8 @@
 
 public class FastFibSequence extends FibSequence implements Sequence
 {
+    public FastFibSequence(int start)
+    {
 
+    }
 }

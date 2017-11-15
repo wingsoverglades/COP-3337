@@ -49,9 +49,54 @@
 
 public class FibSequence implements Sequence
 {
+    private int current_val;
+    private int current_indx;
+
+
+    public FibSequence()
+    {
+        this(0);
+    }
+
+
+    public FibSequence(int start)
+    {
+        current_indx = start;
+        current_val = fibonacci(current_indx);
+    }
+
+
+    /**
+     * This method finds the fibonacci value at a given location in the
+     * sequence.
+     *
+     * @param place     The index of the value we are looking for.
+     * @return          The value of the index.
+     */
+    public static int fibonacci(int place)
+    {
+        if (place == 0)
+        {
+            return 0;
+        }
+        if (place == 1)
+        {
+            return 1;
+        }
+
+        return fibonacci(place - 1) + fibonacci( place - 2);
+    }
+
+
+    /**
+     * This method is a mutator for the instance variables.
+     *
+     * @return      current_val.
+     */
     @Override
     public int next()
     {
-        return 0;
+        current_val = fibonacci(++current_indx);
+        return current_val;
     }
 }
