@@ -49,5 +49,9 @@
 
 public class LoopFibSequence extends FibSequence implements Sequence
 {
-
+    @Override
+    private int fibonacci(int index)
+    {
+        return super.fibonacci(index);
+    }
 }

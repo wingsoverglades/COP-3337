@@ -49,8 +49,61 @@
 
 public class FastFibSequence extends FibSequence implements Sequence
 {
+    private int current_val;
+    private int current_indx;
+
+    /**
+     * Default constructor for the FastFibSequence class.
+     */
+    public FastFibSequence()
+    {
+        super();
+    }
+
+
     public FastFibSequence(int start)
     {
+        super(start);
+    }
 
+
+    /**
+     * This method finds the fibonacci value at a given location in the
+     * sequence. This method uses tail recursion in order to get better
+     * performance over a regular recursive function.
+     *
+     * @param index     The index of the value we are looking for originally,
+     *                  after every recursive call this becomes the number of
+     *                  calls left to do in order to find the answer.
+     * @param p1        The previous fibonacci number. Function must be
+     *                  called with p1 = 0.
+     * @param p2        The addition of the two previous fibonacci numbers.
+     *                  Function must be called with p2 = 1.
+     * @return          The value of the index.
+     */
+    public int fibonacci(int index, int p1, int p2)
+    {
+        if(index == 0)
+        {
+            return p1;
+        }
+        if(index == 1)
+        {
+            return p2;
+        }
+
+        return fibonacci(index - 1, p2, p1 + p2);
+    }
+
+    /**
+     * This method is a mutator for the instance variables.
+     *
+     * @return      current_val.
+     */
+    @Override
+    public int next()
+    {
+        current_val = this.fibonacci(++current_indx, 0, 1);
+        return current_val;
     }
 }

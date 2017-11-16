@@ -14,7 +14,7 @@
 |	______________________________________ [Signature]
 |  
 |   Language:       Java 8
-|   Compile/Run:    [How to Compile and Execute this program, IN DETAIL.] 
+|   Compile/Run:
 | 	javac xxx.java yyy.java java xxx
 | 
 +-------------------------------------------------------------------------------  
@@ -48,6 +48,10 @@ public class FibDemo
 {
     public static void main(String[] args)
     {
-        FibSequence fibo = new LoopFibSequence();
+        FibSequence fibs = new FibSequence();
+        FibSequence fibf = new FastFibSequence();
+        FibSequence fibl = new LoopFibSequence();
+
+        fibf.next();
     }
 }

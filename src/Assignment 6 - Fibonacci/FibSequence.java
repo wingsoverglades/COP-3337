@@ -53,12 +53,20 @@ public class FibSequence implements Sequence
     private int current_indx;
 
 
+    /**
+     * Default constructor for the FibSequence class.
+     */
     public FibSequence()
     {
         this(0);
     }
 
 
+    /**
+     * Main constructor for the FibSequence class.
+     *
+     * @param start     The starting index for the sequence.
+     */
     public FibSequence(int start)
     {
         current_indx = start;
@@ -70,21 +78,21 @@ public class FibSequence implements Sequence
      * This method finds the fibonacci value at a given location in the
      * sequence.
      *
-     * @param place     The index of the value we are looking for.
+     * @param index     The index of the value we are looking for.
      * @return          The value of the index.
      */
-    public static int fibonacci(int place)
+    private int fibonacci(int index)
     {
-        if (place == 0)
+        if (index == 0)
         {
             return 0;
         }
-        if (place == 1)
+        if (index == 1)
         {
             return 1;
         }
 
-        return fibonacci(place - 1) + fibonacci( place - 2);
+        return fibonacci(index - 1) + fibonacci( index - 2);
     }
 
 
