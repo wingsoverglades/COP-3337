@@ -9,7 +9,7 @@
 |   Course:     COP 3337 (Intermediate Programming)
 |   Section:    U09
 |   Instructor: William Feild  
-|   Due Date:   December 7, 2017, by the beggining of class
+|   Due Date:   December 7, 2017, by the beginning of class
 |
 |	I hereby certify that this collective work is my own and none of it is the
 |   work of any other person or entity.
