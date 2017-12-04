@@ -48,10 +48,5 @@ public class FibDemo
 {
     public static void main(String[] args)
     {
-        FibSequence fibs = new FibSequence();
-        FibSequence fibf = new FastFibSequence();
-        FibSequence fibl = new LoopFibSequence();
-
-        fibf.next();
     }
 }

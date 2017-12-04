@@ -49,8 +49,8 @@
 
 public class FibSequence implements Sequence
 {
-    private int current_val;
-    private int current_indx;
+    private int currentVal;
+    private int currentIndx;
 
 
     /**
@@ -58,19 +58,8 @@ public class FibSequence implements Sequence
      */
     public FibSequence()
     {
-        this(0);
-    }
-
-
-    /**
-     * Main constructor for the FibSequence class.
-     *
-     * @param start     The starting index for the sequence.
-     */
-    public FibSequence(int start)
-    {
-        current_indx = start;
-        current_val = fibonacci(current_indx);
+        currentIndx = 0;
+        currentVal = 0;
     }
 
 
@@ -81,7 +70,7 @@ public class FibSequence implements Sequence
      * @param index     The index of the value we are looking for.
      * @return          The value of the index.
      */
-    private int fibonacci(int index)
+    public int fibonacci(int index)
     {
         if (index == 0)
         {
@@ -99,12 +88,12 @@ public class FibSequence implements Sequence
     /**
      * This method is a mutator for the instance variables.
      *
-     * @return      current_val.
+     * @return      currentVal.
      */
     @Override
     public int next()
     {
-        current_val = fibonacci(++current_indx);
-        return current_val;
+        currentVal = this.fibonacci(++currentIndx);
+        return currentVal;
     }
 }

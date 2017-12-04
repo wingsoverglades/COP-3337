@@ -49,8 +49,9 @@
 
 public class FastFibSequence extends FibSequence implements Sequence
 {
-    private int current_val;
-    private int current_indx;
+    private int currentVal;
+    private int currentIndx;
+
 
     /**
      * Default constructor for the FastFibSequence class.
@@ -61,9 +62,16 @@ public class FastFibSequence extends FibSequence implements Sequence
     }
 
 
-    public FastFibSequence(int start)
+    /**
+     * Wrapper method for the fibonacciCore class, Exists in order to ease
+     * calling and to maintain object hierarchy.
+     * @param index
+     * @return
+     */
+    @Override
+    public int fibonacci(int index)
     {
-        super(start);
+        return fibonacciCore(index, 0, 1);
     }
 
 
@@ -81,7 +89,7 @@ public class FastFibSequence extends FibSequence implements Sequence
      *                  Function must be called with p2 = 1.
      * @return          The value of the index.
      */
-    public int fibonacci(int index, int p1, int p2)
+    private int fibonacciCore(int index, int p1, int p2)
     {
         if(index == 0)
         {
@@ -92,8 +100,9 @@ public class FastFibSequence extends FibSequence implements Sequence
             return p2;
         }
 
-        return fibonacci(index - 1, p2, p1 + p2);
+        return fibonacciCore(index - 1, p2, p1 + p2);
     }
+
 
     /**
      * This method is a mutator for the instance variables.
@@ -103,7 +112,7 @@ public class FastFibSequence extends FibSequence implements Sequence
     @Override
     public int next()
     {
-        current_val = this.fibonacci(++current_indx, 0, 1);
-        return current_val;
+        currentVal = this.fibonacci(++currentIndx);
+        return currentVal;
     }
 }
