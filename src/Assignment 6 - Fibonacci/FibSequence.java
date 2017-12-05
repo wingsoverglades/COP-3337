@@ -9,7 +9,7 @@
 |   Course:     COP 3337 (Intermediate Programming)
 |   Section:    U09
 |   Instructor: William Feild  
-|   Due Date:   7 December 2017, by the end of class
+|   Due Date:   12 December 2017, by the end of class
 |
 |	I hereby certify that this collective work is my own and none of it is the
 |   work of any other person or entity.
@@ -20,30 +20,25 @@
 | 	javac FibSequence.java
 |	java
 |
-|   Purpose:  [A description of why this class exists.  For what
-|                   reason was it written?  Which jobs does it perform?]
+|   Purpose:        This class exists in order to provide a simple recursive
+|                   solution to the Fibonacci sequence.
 |
-|   Inherits From:  [If this class is a subclass of another, name it.
-|                   If not, just say "None."]
+|   Inherits From:  None
 |
-|   Interfaces:  [If any predefined interfaces are implemented by
-|                  this class, name them.  If not, ... well, you know.]
+|   Interfaces:     Sequence
 |
 +-------------------------------------------------------------------------------
 |
-|   Constants:  [Name all public class constants, and provide a very
-|                   brief (but useful!) description of each.]
+|   Constants:      No class constants.
 |
 +-------------------------------------------------------------------------------
 |
-|   Constructors:  [List the names and arguments of all defined
-|                   constructors.]
+|   Constructors:       FibSequence() takes no arguments.
 |
-|   Class Methods:  [List the names, arguments, and return types of all
-|                   private class methods.]
+|   Class Methods:      No private class methods.
 |
-|   Instance Methods:  [List the names, arguments, and return types of all
-|                   public instance methods.]
+|   Instance Methods:   int fibonacci() takes one int argument, int next()
+|                       takes no arguments.
 |
 *=============================================================================*/
 

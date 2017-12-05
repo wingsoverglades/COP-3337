@@ -9,7 +9,7 @@
 |   Course:     COP 3337 (Intermediate Programming)
 |   Section:    U09
 |   Instructor: William Feild  
-|   Due Date:   7 December 2017, by the end of class
+|   Due Date:   12 December 2017, by the beginning of class
 |
 |	I hereby certify that this collective work is my own and none of it is the
 |   work of any other person or entity.
@@ -17,7 +17,7 @@
 |  
 |   Language:  Java
 |   Compile/Run: 
-| 	javac FastFibSequence.java
+| 	javac FibDemo.java FastFibSequence.java
 |	java
 |
 |   Purpose:  [A description of why this class exists.  For what
@@ -58,15 +58,16 @@ public class FastFibSequence extends FibSequence implements Sequence
      */
     public FastFibSequence()
     {
-        super();
+        currentIndx = 0;
+        currentVal = 0;
     }
 
 
     /**
      * Wrapper method for the fibonacciCore class, Exists in order to ease
      * calling and to maintain object hierarchy.
-     * @param index
-     * @return
+     * @param index     The index of the fibonacci number to be found.
+     * @return          The fibonacci number at index.
      */
     @Override
     public int fibonacci(int index)
